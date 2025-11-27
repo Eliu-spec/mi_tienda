@@ -1,0 +1,22 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}Catálogo - Mi Tienda{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 style="margin-bottom: 2rem;">Nuestro Catálogo</h1>
+    
+    {% if productos %}
+        {% for producto in productos %}
+        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem;">
+            <h3 style="margin-bottom: 0.5rem;">{{ producto.nombre }}</h3>
+            <p class="precio" style="margin-bottom: 0.5rem;">${{ producto.precio }}</p>
+            <p style="color: #666; margin-bottom: 1rem;">{{ producto.descripcion_corta }}</p>
+            <a href="{% url 'catalogo:detalle' producto.id %}" class="btn">Ver detalle</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay productos disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}

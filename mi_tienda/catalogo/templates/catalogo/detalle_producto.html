@@ -1,0 +1,26 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %}{{ producto.nombre }} - Mi Tienda{% endblock %}
+
+{% block content %}
+<div class="card">
+    <a href="{% url 'catalogo:lista' %}" style="color: #4c7dafff; margin-bottom: 1rem; display: inline-block;">
+        ← Volver al catálogo
+    </a>
+    
+    <h1 style="margin: 1rem 0;">{{ producto.nombre }}</h1>
+    <p class="precio" style="font-size: 2rem; margin-bottom: 1rem;">${{ producto.precio }}</p>
+    
+    <p style="margin-bottom: 1rem;">
+        <strong>Stock:</strong> {{ producto.stock }} unidades
+        {% if producto.disponible %}
+            <span style="color: green; margin-left: 1rem;">✓ Disponible</span>
+        {% else %}
+            <span style="color: red; margin-left: 1rem;">✗ No disponible</span>
+        {% endif %}
+    </p>
+    
+    <h3 style="margin: 1.5rem 0 0.5rem;">Descripción</h3>
+    <p style="color: #313030ff; line-height: 1.6;">{{ producto.descripcion_completa }}</p>
+</div>
+{% endblock %}

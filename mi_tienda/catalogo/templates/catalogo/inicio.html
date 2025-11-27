@@ -1,0 +1,17 @@
+{% extends 'catalogo/base.html' %}
+
+{% block title %} Mi Tienda{% endblock %}
+
+{% block content %}
+<div class="card" style="text-align: center; padding: 4rem 2rem;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #2a2929ff;">
+        Bienvenido a Mi Tienda
+    </h1>
+    <p style="font-size: 1.2rem; color: #383838ff; margin-bottom: 2rem;">
+        Descubre nuestra selección de productos tecnológicos.
+    </p>
+    <a href="{% url 'catalogo:lista' %}" class="btn" style="font-size: 1.1rem;">
+        Catálogo
+    </a>
+</div>
+{% endblock %}
